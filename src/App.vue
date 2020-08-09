@@ -9,7 +9,7 @@
     <!-- bind quote (initial name) to quote array => passing props -->
 
     <div>
-      <app-quote-grid :quote="quotes"></app-quote-grid>
+      <app-quote-grid :quote="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
     </div>
     <div class="row">
       <div class="col-sm-12 text-center mt-5">
@@ -33,6 +33,9 @@ export default {
   methods: {
     newQuote(quote) {
       this.quotes.push(quote);
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1);
     },
   },
   components: {
